@@ -9,10 +9,9 @@ namespace MyFirstASPNETCoreWebApp.Data
 {
     public class MyFirstDbContext : DbContext
     {
-        public MyFirstDbContext(DbContextOptions options)
-            :base(options)
+        public MyFirstDbContext(DbContextOptions<MyFirstDbContext> options) : base(options)
         {
-
+           
         }
         public DbSet<Restaurant> Restaurants { get; set; }
     }

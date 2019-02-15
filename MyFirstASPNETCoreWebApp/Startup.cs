@@ -28,9 +28,12 @@ namespace MyFirstASPNETCoreWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IGreeter, Greeter>();
+            var test = _configuration.GetConnectionString("MyFirstConnection");
+            
             services.AddDbContext<MyFirstDbContext>(
-                options => options.UseSqlServer(_configuration.GetConnectionString("MyFirstConnection")) 
+                options => options.UseSqlServer(_configuration.GetConnectionString("MyFirstConnection"))
             );
+
             services.AddScoped<IRestaurantData, SqlRestaurantData>();
             services.AddMvc();
         }
